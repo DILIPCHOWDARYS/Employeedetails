@@ -1,0 +1,271 @@
+body {
+    background-color: #f8f9fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 20px;
+    transition: background-color 0.5s ease;
+}
+
+body:hover {
+    background-color: #f0f2f5;
+}
+
+h1.display-4 {
+    font-weight: 700;
+    color: #343a40;
+    position: relative;
+    animation: slideInDown 1s ease;
+}
+
+h1.display-4::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 3px;
+    background-color: #007bff;
+    transition: width 0.5s ease;
+}
+
+h1.display-4:hover::after {
+    width: 80px;
+}
+
+.lead {
+    font-size: 1.25rem;
+    color: #6c757d;
+    animation: fadeIn 1.2s ease-in-out;
+}
+
+.jumbotron {
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    animation: fadeInUp 0.8s ease-out;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.jumbotron:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
+}
+
+.jumbotron p {
+    margin-top: 10px;
+    color: #5a5a5a;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.btn-lg {
+    padding: 12px 24px;
+    font-size: 1.25rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn-lg:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+    z-index: -1;
+}
+
+.btn-lg:hover:after {
+    height: 100%;
+}
+
+.btn-lg:active {
+    transform: scale(0.95);
+}
+
+.ms-2 {
+    margin-left: 0.5rem;
+}
+
+.row {
+    margin-top: 40px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.card {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    animation: fadeInUp 0.6s ease-out;
+    animation-fill-mode: both;
+}
+
+.card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.card:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.card:nth-child(3) {
+    animation-delay: 0.5s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.card-body {
+    padding: 30px 20px;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    position: relative;
+    display: inline-block;
+}
+
+.card-title:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #007bff;
+    transition: width 0.3s ease;
+}
+
+.card:hover .card-title:after {
+    width: 100%;
+}
+
+.card-text {
+    font-size: 1rem;
+    color: #6c757d;
+    transform: translateY(20px);
+    opacity: 0;
+    animation: slideUpFadeIn 0.5s forwards;
+    animation-delay: 0.2s;
+}
+
+.btn-outline-primary,
+.btn-outline-success,
+.btn-outline-info {
+    margin-top: 10px;
+    border-radius: 8px;
+    padding: 8px 16px;
+    transition: all 0.3s ease;
+    transform: translateY(20px);
+    opacity: 0;
+    animation: slideUpFadeIn 0.5s forwards;
+    animation-delay: 0.4s;
+}
+
+.btn-outline-primary:hover,
+.btn-outline-success:hover,
+.btn-outline-info:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.fa-3x {
+    margin-bottom: 15px;
+    animation: pulse 2s infinite;
+}
+
+@media (max-width: 768px) {
+    .row {
+        margin-top: 20px;
+    }
+}
+
+@keyframes slideInDown {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideUpFadeIn {
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.card:nth-child(odd) {
+    animation: fadeInLeft 0.7s ease-out;
+}
+
+.card:nth-child(even) {
+    animation: fadeInRight 0.7s ease-out;
+}
+
+@keyframes fadeInLeft {
+    from {
+        transform: translateX(-30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        transform: translateX(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}

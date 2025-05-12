@@ -1,0 +1,319 @@
+body {
+    background-color: #f8f9fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 20px;
+    transition: background-color 0.5s ease;
+    animation: gradientShift 15s infinite alternate;
+}
+
+@keyframes gradientShift {
+    0% {
+        background-color: #f8f9fa;
+    }
+    50% {
+        background-color: #f3f5f7;
+    }
+    100% {
+        background-color: #f8f9fa;
+    }
+}
+
+h2 {
+    color: #343a40;
+    font-weight: 600;
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+    animation: slideInFromTop 0.8s ease-out;
+}
+
+h2:after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background-color: #0d6efd;
+    transition: width 0.4s ease;
+}
+
+h2:hover:after {
+    width: 100%;
+}
+
+@keyframes slideInFromTop {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    animation: fadeIn 0.8s ease-out;
+    perspective: 1000px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #dee2e6;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+    transform-origin: center;
+    animation: cardAppear 0.6s ease-out;
+    backface-visibility: hidden;
+    overflow: hidden;
+}
+
+@keyframes cardAppear {
+    from {
+        opacity: 0;
+        transform: translateY(30px) rotateX(5deg);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) rotateX(0);
+    }
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card:nth-child(odd) {
+    animation-delay: 0.2s;
+}
+
+.card:nth-child(even) {
+    animation-delay: 0.4s;
+}
+
+.card-body {
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+    transition: padding 0.3s ease;
+}
+
+.card-body:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at top right, rgba(13, 110, 253, 0.03), transparent 70%);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.card:hover .card-body:before {
+    opacity: 1;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    position: relative;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.card:hover .card-title {
+    color: #0d6efd;
+    transform: translateX(5px);
+}
+
+.card-text {
+    font-size: 1rem;
+    color: #495057;
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.card:hover .card-text {
+    color: #343a40;
+}
+
+.card-text:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: rgba(13, 110, 253, 0.2);
+    transform: translateX(-100%);
+    transition: transform 0.5s ease;
+}
+
+.card:hover .card-text:after {
+    transform: translateX(0);
+}
+
+.btn-primary {
+    background-color: #0d6efd;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.btn-primary:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 0.3s ease;
+    z-index: -1;
+}
+
+.btn-primary:hover {
+    background-color: #0b5ed7;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(13, 110, 253, 0.3);
+}
+
+.btn-primary:hover:after {
+    transform: scaleY(1);
+}
+
+.btn-primary:active {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(13, 110, 253, 0.3);
+}
+
+/* Button click effect */
+.btn-primary:focus:not(:active) {
+    animation: pulse 0.3s ease-out;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(13, 110, 253, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(13, 110, 253, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(13, 110, 253, 0);
+    }
+}
+
+/* Loading state for button */
+.btn-primary.loading {
+    position: relative;
+    color: transparent !important;
+    pointer-events: none;
+}
+
+.btn-primary.loading:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -8px;
+    margin-left: -8px;
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.mt-3 {
+    margin-top: 1rem;
+}
+
+/* Animation for new content */
+.card.new {
+    animation: highlightNew 2s ease;
+}
+
+@keyframes highlightNew {
+    0% { box-shadow: 0 0 0 2px #0d6efd; }
+    100% { box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); }
+}
+
+/* Image hover effect if there are any images */
+.card img {
+    transition: transform 0.5s ease;
+    display: block;
+    width: 100%;
+}
+
+.card:hover img {
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    .card {
+        animation: mobileCardAppear 0.5s ease-out;
+    }
+
+    @keyframes mobileCardAppear {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    .card-title {
+        font-size: 1.3rem;
+    }
+
+    .btn-primary {
+        width: 100%;
+        text-align: center;
+    }
+}

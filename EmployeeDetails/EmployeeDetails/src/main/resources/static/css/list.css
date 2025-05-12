@@ -1,0 +1,422 @@
+body {
+    background-color: #f8f9fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 20px;
+    transition: background-color 0.4s ease;
+    animation: subtleBreathing 20s infinite alternate;
+}
+
+@keyframes subtleBreathing {
+    0% {
+        background-color: #f8f9fa;
+    }
+    50% {
+        background-color: #f3f5f7;
+    }
+    100% {
+        background-color: #f8f9fa;
+    }
+}
+
+h2 {
+    color: #343a40;
+    font-weight: 600;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 25px;
+    animation: slideInFromLeft 0.7s ease-out;
+}
+
+h2:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background-color: #0d6efd;
+    transition: width 0.4s ease;
+}
+
+h2:hover:after {
+    width: 100px;
+}
+
+@keyframes slideInFromLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #dee2e6;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+    animation: fadeIn 0.8s ease-out;
+    transform-origin: center;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card-body {
+    padding: 20px;
+    transition: padding 0.3s ease;
+}
+
+.card:hover .card-body {
+    padding: 22px 20px;
+}
+
+.alert-info {
+    background-color: #e7f3fe;
+    color: #3178c6;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border-left: 4px solid #3178c6;
+    position: relative;
+    animation: slideInFromTop 0.6s ease-out;
+    transition: all 0.3s ease;
+}
+
+.alert-info:hover {
+    background-color: #daeafe;
+    box-shadow: 0 4px 8px rgba(49, 120, 198, 0.1);
+}
+
+@keyframes slideInFromTop {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.alert-info:before {
+    content: "ⓘ";
+    position: absolute;
+    left: -12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #3178c6;
+    color: white;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.alert-info:hover:before {
+    opacity: 1;
+    transform: translateY(-50%) scale(1.1);
+}
+
+.table-responsive {
+    margin-top: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+    animation: scaleIn 0.7s ease-out;
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.table th, .table td {
+    padding: 12px;
+    text-align: center;
+    vertical-align: middle;
+    transition: all 0.2s ease;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.table th {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f2f2f2;
+    animation: fadeRowIn 0.5s ease-out forwards;
+    opacity: 0;
+}
+
+.table-striped tbody tr:nth-of-type(even) {
+    animation: fadeRowIn 0.5s ease-out forwards;
+    animation-delay: 0.1s;
+    opacity: 0;
+}
+
+@keyframes fadeRowIn {
+    from {
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.table-hover tbody tr {
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.table-hover tbody tr:hover {
+    background-color: #e9ecef;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    z-index: 1;
+    position: relative;
+}
+
+.table-hover tbody tr:hover td {
+    color: #0d6efd;
+}
+
+.table-dark th {
+    background-color: #343a40;
+    color: #ffffff;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.table-dark th:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #0d6efd;
+    transition: width 0.3s ease;
+}
+
+.table-dark th:hover:after {
+    width: 100%;
+}
+
+.btn-group {
+    display: flex;
+    transition: all 0.3s ease;
+}
+
+.btn-group .btn {
+    margin-right: 5px;
+    transform-origin: center;
+}
+
+.btn {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+    border-radius: 6px;
+    text-decoration: none;
+    color: white;
+    border: none;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.3);
+    opacity: 0;
+    border-radius: 100%;
+    transform: scale(1) translate(-50%, -50%);
+    transform-origin: 50% 50%;
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(0);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(20);
+        opacity: 0;
+    }
+}
+
+.btn:focus:not(:active)::after {
+    animation: ripple 0.8s ease-out;
+}
+
+.btn-info {
+    background-color: #17a2b8;
+}
+
+.btn-info:hover {
+    background-color: #138496;
+}
+
+.btn-warning {
+    background-color: #ffc107;
+    color: #212529;
+}
+
+.btn-warning:hover {
+    background-color: #e0a800;
+    color: #212529;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+}
+
+.btn-primary {
+    background-color: #0d6efd;
+}
+
+.btn-primary:hover {
+    background-color: #0b5ed7;
+}
+
+/* Add animation for loading state */
+.btn.loading {
+    position: relative;
+    pointer-events: none;
+    color: transparent !important;
+}
+
+.btn.loading:after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    top: 50%;
+    left: 50%;
+    margin-top: -8px;
+    margin-left: -8px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-top-color: white;
+    animation: spin 0.8s linear infinite;
+    transform: none;
+    opacity: 1;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Add animation for new items */
+.new-item {
+    animation: highlight 2s ease;
+}
+
+@keyframes highlight {
+    0% { background-color: rgba(13, 110, 253, 0.2); }
+    100% { background-color: transparent; }
+}
+
+@media (max-width: 768px) {
+    .d-flex.justify-content-between {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .btn-group {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .btn-group .btn {
+        margin-bottom: 5px;
+        margin-right: 0;
+        width: 100%;
+        animation: mobileButtonFadeIn 0.5s ease-out forwards;
+        opacity: 0;
+    }
+
+    .btn-group .btn:nth-child(1) { animation-delay: 0.1s; }
+    .btn-group .btn:nth-child(2) { animation-delay: 0.2s; }
+    .btn-group .btn:nth-child(3) { animation-delay: 0.3s; }
+    .btn-group .btn:nth-child(4) { animation-delay: 0.4s; }
+
+    @keyframes mobileButtonFadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .table-responsive {
+        overflow-x: auto;
+    }
+
+    .table th, .table td {
+        white-space: nowrap;
+    }
+}

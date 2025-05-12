@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Employee Details</title>
+    <link rel="stylesheet" th:href="@{/css/view.css}" />
+</head>
+<body>
+<div class="container">
+    <h2>Employee Details</h2>
+
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Name: <span th:text="${employee.name}"></span></h5>
+            <p class="card-text">Email: <span th:text="${employee.email}"></span></p>
+            <p class="card-text">Department: <span th:text="${employee.department}"></span></p>
+            <p class="card-text">Salary: <span th:text="${employee.salary}"></span></p>
+            <p class="card-text">Join Date: <span th:text="${#temporals.format(employee.joinDate, 'dd-MM-yyyy')}"></span></p>
+        </div>
+    </div>
+
+    <a href="#" th:href="@{/employees}" class="btn btn-primary mt-3">Back to Employee List</a>
+</div>
+</body>
+</html>
